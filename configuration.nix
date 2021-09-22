@@ -9,6 +9,36 @@
       ./users.nix
     ];
 
+  fileSystems."/" =
+    { device = "none";
+      fsType = "tmpfs";
+      options = [ "defaults" "size=2G" "mode=755" ];
+    };
+
+  fileSystems."/etc/nixos" =
+    { device = "/nix/persist/etc/nixos";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/var/log" =
+    { device = "/nix/persist/var/log";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/var/lib/docker" =
+    { device = "/nix/persist/var/lib/docker";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/var/lib/NetworkManager" =
+    { device = "/nix/persist/var/lib/NetworkManager";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
   networking = {
     hostName = "nixps";
     firewall.enable = true;
@@ -42,13 +72,11 @@
     };
   };
 
-  environment = {
-    etc."machine-id".source = "/nix/persist/etc/machine-id";
-    etc."NetworkManager/system-connections" = {
-      source = "/nix/persist/etc/NetworkManager/system-connections/";
-    };
+  environment.etc = {
+    "machine-id".source = "/nix/persist/etc/machine-id";
+    "NetworkManager/system-connections".source = "/nix/persist/etc/NetworkManager/system-connections/";
   };
-  
+
   hardware.cpu.intel.updateMicrocode = true;
 
   hardware.bluetooth = {

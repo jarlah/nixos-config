@@ -12,13 +12,7 @@
   boot.initrd.kernelModules = [ "dm-snapshot" ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
-
-  fileSystems."/" =
-    { device = "none";
-      fsType = "tmpfs";
-      options = [ "defaults" "size=2G" "mode=755" ];
-    };
-
+  
   fileSystems."/nix" =
     { device = "/dev/disk/by-uuid/5992dd65-8bb6-4cfd-91e1-efc651002c78";
       fsType = "ext4";
@@ -27,18 +21,6 @@
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/1FED-F6B0";
       fsType = "vfat";
-    };
-
-  fileSystems."/etc/nixos" =
-    { device = "/nix/persist/etc/nixos";
-      fsType = "none";
-      options = [ "bind" ];
-    };
-
-  fileSystems."/var/log" =
-    { device = "/nix/persist/var/log";
-      fsType = "none";
-      options = [ "bind" ];
     };
 
   swapDevices =
