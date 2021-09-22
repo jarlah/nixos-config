@@ -35,7 +35,7 @@
 
               home.persistence."/nix/persist/home/jarlandre" = {
                 directories = [ ".ssh" "Downloads" ".mozilla" ];
-                files = [];
+                files = [ ".gitconfig" ];
                 allowOther = false;
               };
             };
@@ -52,7 +52,7 @@
 
               home.persistence."/nix/persist/home/work" = {
                 directories = [ ".ssh" "Downloads" ".mozilla" ];
-                files = [];
+                files = [ ".gitconfig" ];
                 allowOther = false;
               };
             };
