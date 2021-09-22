@@ -39,23 +39,6 @@
                 allowOther = false;
               };
             };
-            home-manager.users.work = { pkgs, ... }: {
-              imports = [
-                "${inputs.impermanence}/home-manager.nix"
-                ./home/starship.nix
-                ./home/zsh.nix
-              ];
-              programs.home-manager.enable = true;
-              programs.firefox.enable = true;
-              programs.fzf.enable = true;
-              programs.htop.enable = true;
-
-              home.persistence."/nix/persist/home/work" = {
-                directories = [ "dev" ".ssh" "Downloads" ".mozilla" ];
-                files = [ ".gitconfig" ];
-                allowOther = false;
-              };
-            };
           }
           {
             config.nixpkgs = {
