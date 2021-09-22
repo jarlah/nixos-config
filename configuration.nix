@@ -42,7 +42,12 @@
     };
   };
 
-  environment.etc."machine-id".source = "/nix/persist/etc/machine-id";
+  environment = {
+    etc."machine-id".source = "/nix/persist/etc/machine-id";
+    etc."NetworkManager/system-connections" = {
+      source = "/nix/persist/etc/NetworkManager/system-connections/";
+    };
+  };
   
   hardware.cpu.intel.updateMicrocode = true;
 
