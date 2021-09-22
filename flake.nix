@@ -36,8 +36,9 @@
               home.persistence."/nix/persist/home/jarlandre" = {
                 directories = [ ".ssh" "Downloads" ".mozilla" ];
                 files = [];
+                allowOther = false;
               };
-            }
+            };
             home-manager.users.work = { pkgs, ... }: {
               imports = [
                 "${inputs.impermanence}/home-manager.nix"
@@ -52,8 +53,9 @@
               home.persistence."/nix/persist/home/work" = {
                 directories = [ ".ssh" "Downloads" ".mozilla" ];
                 files = [];
+                allowOther = false;
               };
-            }
+            };
           }
           {
             config.nixpkgs = {
