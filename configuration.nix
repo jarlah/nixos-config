@@ -44,12 +44,8 @@
 
   environment.etc."machine-id".source = "/nix/persist/etc/machine-id";
   
-  services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
-    [org.gnome.shell.app-switcher]
-    current-workspace-only=true
-  '';
-  hardware.enableAllFirmware = true;
   hardware.cpu.intel.updateMicrocode = true;
+
   hardware.bluetooth = {
     enable = true;
     settings = {
@@ -58,20 +54,17 @@
       };
     };
   };
+
   systemd.services.bluetooth.serviceConfig.ExecStart = [
     ""
     "${pkgs.bluez}/libexec/bluetooth/bluetoothd ${lib.escapeShellArgs [ "-f" "/etc/bluetooth/main.conf" "-E" "-d" ]}"
   ];
+
   hardware.pulseaudio = {
     enable = true;
     support32Bit = true;
     package = pkgs.pulseaudioFull;
   };
-  hardware.firmware = with pkgs; [
-    sof-firmware
-    firmwareLinuxNonfree
-    wireless-regdb
-  ];
 
   programs.light.enable = true;
   programs.seahorse.enable = true;

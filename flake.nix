@@ -4,7 +4,7 @@
   inputs = {
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
-    nixos-hardware.url = github:NixOS/nixos-hardware/master;
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     impermanence.url = "github:nix-community/impermanence";
   };
@@ -34,10 +34,11 @@
               programs.htop.enable = true;
 
               home.persistence."/nix/persist/home/jarlandre" = {
-                directories = [ ".ssh" "Downloads" ".mozilla" ];
-                files = [];
+                directories = [ "dev" ".ssh" "Downloads" ".mozilla" ];
+                files = [ ".gitconfig" ];
+                allowOther = false;
               };
-            }
+            };
             home-manager.users.work = { pkgs, ... }: {
               imports = [
                 "${inputs.impermanence}/home-manager.nix"
@@ -50,10 +51,11 @@
               programs.htop.enable = true;
 
               home.persistence."/nix/persist/home/work" = {
-                directories = [ ".ssh" "Downloads" ".mozilla" ];
-                files = [];
+                directories = [ "dev" ".ssh" "Downloads" ".mozilla" ];
+                files = [ ".gitconfig" ];
+                allowOther = false;
               };
-            }
+            };
           }
           {
             config.nixpkgs = {

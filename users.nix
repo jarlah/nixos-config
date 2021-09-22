@@ -4,7 +4,6 @@
   users = {
     mutableUsers = false;
     users = {
-      root.initialHashedPassword = "$6$LqPfyI/FG6Q$YHxElCCC1cGM70f4f/UW8ZCg8N5R.3M9X5vfLyjto1f28KPPVaYCflYuUNViWiuh7G5uBp6yHG/84HkVw0RlS/";
       jarlandre = {
         description = "Jarl André Hübenthal";
         extraGroups = [ "jarlandre" "wheel" "audio" "video" "networkmanager" "docker" ];
