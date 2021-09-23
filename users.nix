@@ -17,16 +17,13 @@
           gitAndTools.gh
           htop
           kubectl
-          nodejs
           elmPackages.create-elm-app
           elmPackages.elm
           elmPackages.elm-test
           elmPackages.elm-format
           elmPackages.elm-review
           openssl
-          slack
           spotify
-          terraform
           vscode
           zoom-us
         ];

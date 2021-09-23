@@ -39,6 +39,14 @@
       options = [ "bind" ];
     };
 
+  fileSystems."/etc/NetworkManager/system-connections" =
+    { device = "/nix/persist/etc/NetworkManager/system-connections";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  environment.etc."machine-id".source = "/nix/persist/etc/machine-id";
+
   networking = {
     hostName = "nixps";
     firewall.enable = true;
@@ -70,11 +78,6 @@
       EDITOR = "nano";
       NIXPKGS_ALLOW_UNFREE = "1";
     };
-  };
-
-  environment.etc = {
-    "machine-id".source = "/nix/persist/etc/machine-id";
-    "NetworkManager/system-connections".source = "/nix/persist/etc/NetworkManager/system-connections/";
   };
 
   hardware.cpu.intel.updateMicrocode = true;
