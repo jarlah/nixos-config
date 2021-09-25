@@ -71,7 +71,14 @@
   environment = {
     systemPackages = [ 
       pkgs.git
-      pkgs.gnome3.gnome-tweaks 
+      pkgs.gnome3.gnome-tweaks
+      pkgs.alacritty 
+      pkgs.haskellPackages.xmobar
+      pkgs.feh
+      pkgs.rofi
+      pkgs.gmrun
+      pkgs.xscreensaver
+      pkgs.shutter
     ];
     shells = [ pkgs.zsh ];
     variables = {
@@ -98,12 +105,10 @@
 
   hardware.pulseaudio = {
     enable = true;
-    support32Bit = true;
     package = pkgs.pulseaudioFull;
   };
 
   programs.light.enable = true;
-  programs.seahorse.enable = true;
   programs.zsh.ohMyZsh = {
     enable = true;
     plugins = [ "git" "python" "man" ];
@@ -112,20 +117,30 @@
   security.rtkit.enable = true;
   security.tpm2.enable = true;
   services.fwupd.enable = true;
-  services.gnome.gnome-keyring.enable = true;
   services.thermald.enable = true;
   services.tlp.enable = true;
-  # due to tlp
-  services.power-profiles-daemon.enable = false;  
   services.upower.enable = true;
-  # gnome stuff
-  services.xserver.enable = true;
-  services.xserver.layout = "no";
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.displayManager.gdm.wayland = false;  
-  services.xserver.desktopManager.gnome.enable = true;  
-  services.dbus.packages = [ pkgs.gnome3.dconf ];
-  services.udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
+
+  services.xserver = {
+    enable = true;
+    layout = "no";
+    windowManager = {
+      xmonad = {
+        enable = true;
+        enableContribAndExtras = true;
+        extraPackages = haskellPackages : [
+          haskellPackages.xmonad-contrib
+          haskellPackages.xmonad-extras
+          haskellPackages.xmonad
+        ];
+      };
+    };
+    displayManager.defaultSession = "none+xmonad";
+  };
+
+  services.compton.enable = true;
+  services.picom.backend = "glx";
+  services.picom.vSync = true;
   
   sound.mediaKeys.enable = true;
   sound.enable = true;
