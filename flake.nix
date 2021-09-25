@@ -4,7 +4,6 @@
   inputs = {
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     impermanence.url = "github:nix-community/impermanence";
   };
@@ -16,7 +15,6 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          inputs.nixos-hardware.nixosModules.dell-xps-13-9310
           inputs.home-manager.nixosModules.home-manager
           inputs.impermanence.nixosModules.impermanence
           {

@@ -1,14 +1,8 @@
 { pkgs, ... }:
 {
   boot.blacklistedKernelModules = [];
-  boot.initrd.kernelModules = [];
-  boot.kernelPatches = [
-   {
-     name = "fix wifi regression";
-     patch = ./wifi-fix1.patch;
-   }
-  ];
-  boot.initrd.luks.devices.nixps.device = "/dev/disk/by-uuid/8693fd22-5b70-46e5-9bcd-61ab879aac3f";
+  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.initrd.luks.devices.nixps.device = "/dev/disk/by-uuid/f1c6f187-b09f-49b1-92ed-605680ab2b55";
   boot.kernelParams = [ "quiet" ];
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.systemd-boot.enable = true;
