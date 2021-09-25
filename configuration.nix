@@ -79,6 +79,7 @@
       pkgs.gmrun
       pkgs.xscreensaver
       pkgs.shutter
+      pkgs.xorg.xmessage
     ];
     shells = [ pkgs.zsh ];
     variables = {
