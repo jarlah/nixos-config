@@ -128,6 +128,10 @@
   services.xserver = {
     enable = true;
     layout = "no";
+    synaptics = {
+      enable = true;
+      twoFingerScroll = true;
+    };
     windowManager = {
       xmonad = {
         enable = true;
