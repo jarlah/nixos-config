@@ -80,6 +80,9 @@
       pkgs.xscreensaver
       pkgs.shutter
       pkgs.xorg.xmessage
+      pkgs.stack
+      pkgs.ghc
+      pkgs.hlint
     ];
     shells = [ pkgs.zsh ];
     variables = {

@@ -34,7 +34,7 @@
               programs.htop.enable = true;
 
               home.persistence."/nix/persist/home/jarlandre" = {
-                directories = [ "dev" ".ssh" "Downloads" ".mozilla" ".vscode" ".m2" ".xmonad" ];
+                directories = [ "dev" ".ssh" "Downloads" ".mozilla" ".vscode" ".m2" ".xmonad" ".stack" ];
                 files = [ ".gitconfig" ".xinitrc" ".zsh_history" ".bash_history" ];
                 allowOther = false;
               };
