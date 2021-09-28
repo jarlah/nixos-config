@@ -83,6 +83,9 @@
       pkgs.stack
       pkgs.ghc
       pkgs.hlint
+      pkgs.autorandr
+      pkgs.gnomeExtensions.appindicator
+      pkgs.gnomeExtensions.dash-to-dock
     ];
     shells = [ pkgs.zsh ];
     variables = {
@@ -125,6 +128,8 @@
   services.tlp.enable = true;
   services.upower.enable = true;
 
+  services.logind.lidSwitchExternalPower = "ignore";
+
   services.xserver = {
     enable = true;
     layout = "no";
@@ -139,10 +144,17 @@
         ];
       };
     };
+    desktopManager.gnome.enable = true;
+    displayManager.lightdm.enable = false;
+    displayManager.gdm.enable = true;
     displayManager.defaultSession = "none+xmonad";
   };
 
-  services.compton.enable = true;
+  services.dbus.packages = [ pkgs.gnome3.dconf ];
+  services.udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
+  services.power-profiles-daemon.enable = false;
+
+  services.picom.enable = true;
   services.picom.backend = "glx";
   services.picom.vSync = true;
   
