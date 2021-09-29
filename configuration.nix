@@ -84,6 +84,7 @@
       pkgs.ghc
       pkgs.hlint
       pkgs.autorandr
+      pkgs.arandr
       pkgs.gnomeExtensions.appindicator
       pkgs.gnomeExtensions.dash-to-dock
     ];
