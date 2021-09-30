@@ -149,9 +149,10 @@
         ];
       };
     };
-    desktopManager.gnome.enable = true;
+    #desktopManager.gnome.enable = true;
     displayManager.lightdm.enable = false;
-    displayManager.gdm.enable = true;
+    displayManager.startx.enable = true;
+    #displayManager.gdm.enable = true;
     displayManager.defaultSession = "none+xmonad";
   };
 

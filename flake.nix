@@ -50,7 +50,7 @@
                   ".kube" 
                   ".docker"
                 ];
-                files = [ ".gitconfig" ".zsh_history" ".bash_history" ];
+                files = [ ".gitconfig" ".zsh_history" ".bash_history" ".xinitrc" ];
                 allowOther = false;
               };
             };
