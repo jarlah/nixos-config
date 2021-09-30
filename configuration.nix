@@ -51,8 +51,8 @@
     hostName = "nixps";
     firewall.enable = true;
     networkmanager.enable = true;
-    networkmanager.wifi.backend = "iwd";
-    useDHCP = false;
+    #networkmanager.wifi.backend = "iwd";
+    #useDHCP = true;
   };
 
   time.timeZone = "Europe/Oslo";
