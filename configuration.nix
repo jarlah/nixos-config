@@ -68,7 +68,7 @@
 
   nixpkgs.config.allowUnfree = true;  
 
-  environment = {
+ environment = {
     systemPackages = [ 
       pkgs.git
       pkgs.gnome3.gnome-tweaks
@@ -87,6 +87,10 @@
       pkgs.arandr
       pkgs.gnomeExtensions.appindicator
       pkgs.gnomeExtensions.dash-to-dock
+      pkgs.slack
+      (pkgs.python3.withPackages(ps: [ ps.pyyaml ps.requests ]))
+      pkgs.google-cloud-sdk
+      pkgs.jq
     ];
     shells = [ pkgs.zsh ];
     variables = {
