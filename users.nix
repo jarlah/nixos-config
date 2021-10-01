@@ -5,34 +5,32 @@
     mutableUsers = false;
     users = {
       jarlandre = {
-        description = "Jarl André Hübenthal";
+        description = "Jarl André (Work)";
         extraGroups = [ "jarlandre" "wheel" "audio" "video" "networkmanager" "docker" ];
         shell = pkgs.zsh;
         home = "/home/jarlandre";
         isNormalUser = true;
         uid = 1001;
         initialHashedPassword = "$6$q7BSYxvDsnnWsfv$X8bskmu4/QRnQN.tI/fDUg3CTUWe/EgawHuDWwyt/B0cq3j4EUHwhMVOj35LWZryk73ZE06QHPFX3ExVjeThB/";
-        packages = with pkgs ; [
-          docker-compose
-          gitAndTools.gh
-          htop
-          kubectl
-          elmPackages.create-elm-app
-          elmPackages.elm
-          elmPackages.elm-test
-          elmPackages.elm-format
-          elmPackages.elm-review
-          openssl
-          spotify
-          vscode
-          zoom-us
-        ];
+      };
+      jarlah = {
+        description = "Jarl André (Private)";
+        extraGroups = [ "jarlah" "wheel" "audio" "video" "networkmanager" "docker" ];
+        shell = pkgs.zsh;
+        home = "/home/jarlah";
+        isNormalUser = true;
+        uid = 1002;
+        initialHashedPassword = "$6$q7BSYxvDsnnWsfv$X8bskmu4/QRnQN.tI/fDUg3CTUWe/EgawHuDWwyt/B0cq3j4EUHwhMVOj35LWZryk73ZE06QHPFX3ExVjeThB/";
       };
     };
     groups = {
       jarlandre = {
         gid = 1001;
         members = [ "jarlandre" ];
+      };
+      jarlah = {
+        gid = 1002;
+        members = [ "jarlah" ];
       };
     };       
   };

@@ -10,7 +10,12 @@
   };
 
   outputs = inputs: {
-
+    boot.kernelPatches = [
+      {
+        name = "fix wifi regression";
+        patch = ./wifi-fix1.patch;
+      }
+    ];
     nixosConfigurations = {
       nixps = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -22,37 +27,27 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-            home-manager.users.jarlandre = { pkgs, ... }: {
+            home-manager.users.jarlandre = { ... }: {
               imports = [
                 "${inputs.impermanence}/home-manager.nix"
                 ./home/starship.nix
                 ./home/zsh.nix
+                ./home/packages.nix
               ];
               programs.home-manager.enable = true;
-              programs.firefox.enable = true;
-              programs.fzf.enable = true;
-              programs.htop.enable = true;
-
-              home.persistence."/nix/persist/home/jarlandre" = {
-                directories = [ 
-                  "dev" 
-                  ".ssh" 
-                  "Downloads" 
-                  ".mozilla" 
-                  ".vscode" 
-                  ".m2" 
-                  ".xmonad" 
-                  ".stack" 
-                  ".config/Slack" 
-                  ".config/autorandr" 
-                  ".config/gcloud"
-                  ".cargo" 
-                  ".kube" 
-                  ".docker"
-                ];
-                files = [ ".gitconfig" ".zsh_history" ".bash_history" ".xinitrc" ];
-                allowOther = false;
-              };
+              home.persistence."/nix/persist/home/jarlandre" = 
+                import ./home/persistence.nix;
+            };
+            home-manager.users.jarlah = { ... }: {
+              imports = [
+                "${inputs.impermanence}/home-manager.nix"
+                ./home/starship.nix
+                ./home/zsh.nix
+                ./home/packages.nix
+              ];
+              programs.home-manager.enable = true;
+              home.persistence."/nix/persist/home/jarlah" = 
+                import ./home/persistence.nix;
             };
           }
           {
