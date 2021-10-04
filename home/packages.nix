@@ -16,5 +16,6 @@
         pkgs.zoom-us
         pkgs.firefox
         pkgs.fzf
+        pkgs.qemu
     ];
 }

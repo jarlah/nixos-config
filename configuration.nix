@@ -68,7 +68,7 @@
 
   nixpkgs.config.allowUnfree = true;  
 
- environment = {
+  environment = {
     systemPackages = [ 
       pkgs.git
       pkgs.gnome3.gnome-tweaks
@@ -120,6 +120,8 @@
     package = pkgs.pulseaudioFull;
   };
 
+  programs.steam.enable = true;
+  programs.fuse.userAllowOther = true;
   programs.light.enable = true;
   programs.zsh.ohMyZsh = {
     enable = true;

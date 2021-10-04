@@ -1,19 +1,21 @@
 {
     directories = [ 
-        "dev" 
-        ".ssh" 
-        "Downloads" 
-        ".mozilla" 
-        ".vscode" 
-        ".m2" 
-        ".xmonad" 
-        ".stack" 
-        ".config/Slack" 
-        ".config/autorandr" 
+        "dev"
+        ".ssh"
+        "Downloads"
+        ".mozilla"
+        ".vscode"
+        ".m2"
+        ".xmonad"
+        ".stack"
+        ".config/Slack"
+        ".config/autorandr"
         ".config/gcloud"
-        ".cargo" 
-        ".kube" 
+        ".cargo"
+        ".kube"
         ".docker"
+        ".steam"
+        ".local/share/Steam"
     ];
     files = [ 
         ".gitconfig"
@@ -21,5 +23,5 @@
         ".bash_history"
         ".xinitrc"
     ];
-    allowOther = false;
+    allowOther = true;
 }

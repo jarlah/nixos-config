@@ -10,12 +10,6 @@
   };
 
   outputs = inputs: {
-    boot.kernelPatches = [
-      {
-        name = "fix wifi regression";
-        patch = ./wifi-fix1.patch;
-      }
-    ];
     nixosConfigurations = {
       nixps = inputs.nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
