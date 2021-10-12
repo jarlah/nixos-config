@@ -1,6 +1,18 @@
 { pkgs, ... }:
 
 {
+  fileSystems."/home/jarlandre" =
+    { device = "/nix/persist/home/jarlandre";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/home/jarlah" =
+    { device = "/nix/persist/home/jarlah";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
   users = {
     mutableUsers = false;
     users = {
