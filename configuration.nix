@@ -33,6 +33,12 @@
       options = [ "bind" ];
     };
 
+  fileSystems."/tmp" =
+    { device = "/nix/persist/tmp";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
   fileSystems."/var/lib/NetworkManager" =
     { device = "/nix/persist/var/lib/NetworkManager";
       fsType = "none";
