@@ -17,5 +17,8 @@
         pkgs.firefox
         pkgs.fzf
         pkgs.qemu
+	pkgs.woeusb
+	pkgs.unzip
+	pkgs.ghc
     ];
 }
