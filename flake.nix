@@ -29,8 +29,6 @@
                 ./home/packages.nix
               ];
               programs.home-manager.enable = true;
-              home.persistence."/nix/persist/home/jarlandre" = 
-                import ./home/persistence.nix;
             };
             home-manager.users.jarlah = { ... }: {
               imports = [
@@ -40,8 +38,6 @@
                 ./home/packages.nix
               ];
               programs.home-manager.enable = true;
-              home.persistence."/nix/persist/home/jarlah" = 
-                import ./home/persistence.nix;
             };
           }
           {

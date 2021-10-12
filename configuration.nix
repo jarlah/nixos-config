@@ -44,6 +44,18 @@
       fsType = "none";
       options = [ "bind" ];
     };
+  
+  fileSystems."/home/jarlandre" =
+    { device = "/nix/persist/home/jarlandre";
+      fsType = "none";
+      options = [ "bind" ];
+    };
+
+  fileSystems."/home/jarlah" =
+    { device = "/nix/persist/home/jarlah";
+      fsType = "none";
+      options = [ "bind" ];
+    };
 
   environment.etc."machine-id".source = "/nix/persist/etc/machine-id";
 
