@@ -12,5 +12,8 @@
       path = ".config/zsh/zsh_history";
     };
     dotDir = ".config/zsh";
+    initExtra = ''
+      export PATH="$HOME/.cargo/bin:$PATH"
+    '';
   };
 }

@@ -21,5 +21,9 @@
         pkgs.unzip
         pkgs.ghc
         pkgs.k9s
+        pkgs.azure-cli
+        pkgs.steam
+        pkgs.postman
+        pkgs.httpie
     ];
 }
