@@ -146,22 +146,22 @@
   services.xserver = {
     enable = true;
     layout = "no";
-    windowManager = {
-      xmonad = {
-        enable = true;
-        enableContribAndExtras = true;
-        extraPackages = haskellPackages : [
-          haskellPackages.xmonad-contrib
-          haskellPackages.xmonad-extras
-          haskellPackages.xmonad
-        ];
-      };
-    };
-    #desktopManager.gnome.enable = true;
-    displayManager.lightdm.enable = false;
-    displayManager.startx.enable = true;
-    #displayManager.gdm.enable = true;
-    displayManager.defaultSession = "none+xmonad";
+    #windowManager = {
+    #  xmonad = {
+     #   enable = true;
+     #   enableContribAndExtras = true;
+     #   extraPackages = haskellPackages : [
+     #     haskellPackages.xmonad-contrib
+     #     haskellPackages.xmonad-extras
+     #     haskellPackages.xmonad
+     #   ];
+     # };
+    #};
+    desktopManager.gnome.enable = true;
+    #displayManager.lightdm.enable = false;
+    #displayManager.startx.enable = true;
+    displayManager.gdm.enable = true;
+    #displayManager.defaultSession = "none+xmonad";
   };
 
   services.dbus.packages = [ pkgs.gnome3.dconf ];
